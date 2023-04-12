@@ -75,7 +75,7 @@ plot_orbits(
   label_planets = TRUE,
 ) +
   hrbrthemes::theme_ipsum(grid="") +
-  coord_equal() +
+  ggplot2::coord_equal() +
   labs(
     title = "Sol",
     caption = "Pluto is 100\% a planet"

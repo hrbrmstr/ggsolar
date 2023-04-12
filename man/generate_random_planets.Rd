@@ -39,7 +39,7 @@ plot_orbits(
   planet_positions = placed_planets,
   label_planets = TRUE,
 ) +
-  hrbrthemes::theme_ipsum(grid="") +
+  ggplot2::theme_void() +
   ggplot2::coord_equal() +
   ggplot2::labs(
     title = "Rando System"

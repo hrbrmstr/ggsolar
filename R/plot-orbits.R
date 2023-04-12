@@ -44,7 +44,7 @@
 #'   planet_positions = placed_planets,
 #'   label_planets = TRUE,
 #' ) +
-#'   hrbrthemes::theme_ipsum(grid="") +
+#'   ggplot2::theme_void() +
 #'   ggplot2::coord_equal() +
 #'   ggplot2::labs(
 #'     title = "Sol",
@@ -61,7 +61,7 @@ plot_orbits <- function (orbits,
                          planet_shape = 21,
                          planet_stroke = 0.5,
                          planet_color = "#fea100",
-                         planet_fill = scales::alpha("#fea100", 1/4),
+                         planet_fill = ggplot2::alpha("#fea100", 1/4),
                          label_color = "white",
                          label_size = 3,
                          label_family = "sans",

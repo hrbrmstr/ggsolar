@@ -32,7 +32,7 @@
 #' ) +
 #'   hrbrthemes::theme_ipsum(grid="") +
 #'   ggplot2::coord_equal() +
-#'   labs(
+#'   ggplot2::labs(
 #'     title = "Rando System"
 #'   ) +
 #'   theme_enhance_solar()

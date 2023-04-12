@@ -21,6 +21,8 @@ character vector of planet names
 }
 }
 \examples{
+library(ggplot2)
+
 generate_random_planets(15)
 
 set.seed(42)
@@ -39,7 +41,7 @@ plot_orbits(
 ) +
   hrbrthemes::theme_ipsum(grid="") +
   ggplot2::coord_equal() +
-  labs(
+  ggplot2::labs(
     title = "Rando System"
   ) +
   theme_enhance_solar()

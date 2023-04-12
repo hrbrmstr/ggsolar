@@ -63,6 +63,8 @@ optionally be added, but only naive positioning of labels is performed.
 }
 }
 \examples{
+library(ggplot2)
+
 sol_orbits <- generate_orbits(sol_planets)
 
 set.seed(1323)
@@ -76,7 +78,7 @@ plot_orbits(
 ) +
   hrbrthemes::theme_ipsum(grid="") +
   ggplot2::coord_equal() +
-  labs(
+  ggplot2::labs(
     title = "Sol",
     caption = "Pluto is 100\% a planet"
   ) +

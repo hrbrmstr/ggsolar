@@ -46,7 +46,7 @@
 #' ) +
 #'   hrbrthemes::theme_ipsum(grid="") +
 #'   ggplot2::coord_equal() +
-#'   labs(
+#'   ggplot2::labs(
 #'     title = "Sol",
 #'     caption = "Pluto is 100% a planet"
 #'   ) +

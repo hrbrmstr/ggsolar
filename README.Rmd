@@ -33,10 +33,35 @@ hrbrpkghelpr::install_block()
 
 ```{r lib-ex}
 library(ggsolar)
+library(ggplot2)
 
 # current version
 packageVersion("ggsolar")
 
+```
+
+## Sol
+
+```{r sol, fig.width=6, fig.height=6}
+sol_orbits <- generate_orbits(sol_planets)
+
+set.seed(1323) # this produced a decent placements
+
+placed_planets <- randomize_planet_positions(sol_orbits)
+
+plot_orbits(
+  orbits = sol_orbits, 
+  planet_positions = placed_planets,
+  label_planets = TRUE,
+  label_family = hrbrthemes::font_es_bold
+) +
+  hrbrthemes::theme_ipsum_es(grid="") +
+  coord_equal() +
+  labs(
+    title = "Sol",
+    caption = "Pluto is 100% a planet"
+  ) +
+  theme_enhance_solar()
 ```
 
 ## ggsolar Metrics

@@ -4,15 +4,15 @@
 \name{ggsolar}
 \alias{ggsolar}
 \alias{ggsolar-package}
-\title{...}
+\title{Generate Solar System Plots}
 \description{
-A good description goes here otherwise CRAN checks fail.
+Generate "solar system" plots using everyone's favorite plotting package.
 }
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://git.rud.is/hrbrmstr/ggsolar}
-  \item Report bugs at \url{https://git.rud.is/hrbrmstr/ggsolar/issues}
+  \item \url{https://github.com/hrbrmstr/ggsolar}
+  \item Report bugs at \url{https://github.com/hrbrmstr/ggsolar/issues}
 }
 
 }

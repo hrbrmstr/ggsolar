@@ -1,6 +1,6 @@
 Package: ggsolar
 Type: Package
-Title: ggsolar Title Goes Here Otherwise CRAN Checks Fail
+Title: Generate Solar System Plots
 Version: 0.1.0
 Date: 2023-04-12
 Authors@R: c(
@@ -8,17 +8,19 @@ Authors@R: c(
            comment = c(ORCID = "0000-0001-5670-2640"))
   )
 Maintainer: Bob Rudis <bob@rud.is>
-Description: A good description goes here otherwise CRAN checks fail.
-URL: https://git.rud.is/hrbrmstr/ggsolar
-BugReports: https://git.rud.is/hrbrmstr/ggsolar/issues
+Description: Generate "solar system" plots using everyone's favorite plotting package.
+URL: https://github.com/hrbrmstr/ggsolar
+BugReports: https://github.com/hrbrmstr/ggsolar/issues
 Encoding: UTF-8
-License: AGPL
+License: MIT + file LICENSE
 Suggests:
     tinytest
 Depends:
-    R (>= 3.6.0)
+    R (>= 3.6.0),
 Imports:
-    httr2,
-    jsonlite
+    httr,
+    jsonlite,
+    ggplot2,
+    scales
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3

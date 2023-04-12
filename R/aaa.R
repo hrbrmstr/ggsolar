@@ -1,3 +1,7 @@
+utils::globalVariables(
+  c("x", "y", "planet")
+)
+
 #' Our Solar System
 #'
 #' Character vector of the planet names of Sol
@@ -6,9 +10,6 @@
 #' @docType data
 #' @export
 sol_planets <- c("Mercury", "Venus", "Earth", "Mars", "Jupyter", "Saturn", "Uranus", "Neptune", "Pluto")
-
-
-
 
 c("cen-tau-ri", "pro-xi-ma", "al-pha", "pro-xi-mus", "ter-ra",
   "sa-turn", "ju-pi-ter", "mer-cu-ry", "ve-nus", "u-ra-nus", "mars",

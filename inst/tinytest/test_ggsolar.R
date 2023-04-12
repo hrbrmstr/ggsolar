@@ -1,20 +1,65 @@
 library(ggsolar)
 
 shld_be <- c("Lesra Viii", "Tinus Proxima", "Nigplu D", "Nusam", "Gussiania",
-  "Aenma", "Depe D", "Caty Proxima", "Magnus", "Cosamlos")
+"Aenma", "Depe D", "Caty Proxima", "Magnus", "Cosamlos")
 
 set.seed(1)
-is_it <- generate_random_planets(10)
+planets <- generate_random_planets(10)
 
-expect_equal(shld_be, is_it)
+expect_equivalent(shld_be, planets)
+
+shld_be_2 <- structure(list(x = c(0.309016994374947, -0.809016994374947, -0.809016994374947,
+0.309016994374947, 1, 0.618033988749895, -1.61803398874989, -1.6180339887499,
+0.618033988749894, 2, 0.927050983124842, -2.42705098312484, -2.42705098312484,
+0.927050983124842, 3, 1.23606797749979, -3.23606797749979, -3.23606797749979,
+1.23606797749979, 4, 1.54508497187474, -4.04508497187474, -4.04508497187474,
+1.54508497187474, 5, 1.85410196624968, -4.85410196624968, -4.85410196624968,
+1.85410196624968, 6, 2.16311896062463, -5.66311896062463, -5.66311896062463,
+2.16311896062463, 7, 2.47213595499958, -6.47213595499958, -6.47213595499958,
+2.47213595499958, 8, 2.78115294937453, -7.28115294937453, -7.28115294937453,
+2.78115294937453, 9, 3.09016994374947, -8.09016994374947, -8.09016994374947,
+3.09016994374947, 10), y = c(0.951056516295154, 0.587785252292473,
+-0.587785252292473, -0.951056516295154, -2.44929359829471e-16,
+1.90211303259031, 1.17557050458495, -1.17557050458495, -1.90211303259031,
+-4.89858719658941e-16, 2.85316954888546, 1.76335575687742, -1.76335575687742,
+-2.85316954888546, -7.34788079488412e-16, 3.80422606518061, 2.35114100916989,
+-2.35114100916989, -3.80422606518061, -9.79717439317883e-16,
+4.75528258147577, 2.93892626146237, -2.93892626146237, -4.75528258147577,
+-1.22464679914735e-15, 5.70633909777092, 3.52671151375484, -3.52671151375484,
+-5.70633909777092, -1.46957615897682e-15, 6.65739561406607, 4.11449676604731,
+-4.11449676604731, -6.65739561406608, -1.71450551880629e-15,
+7.60845213036123, 4.70228201833979, -4.70228201833978, -7.60845213036123,
+-1.95943487863577e-15, 8.55950864665638, 5.29006727063226, -5.29006727063226,
+-8.55950864665638, -2.20436423846524e-15, 9.51056516295153, 5.87785252292473,
+-5.87785252292473, -9.51056516295154, -2.44929359829471e-15),
+planet = c("Lesra Viii", "Lesra Viii", "Lesra Viii", "Lesra Viii",
+"Lesra Viii", "Tinus Proxima", "Tinus Proxima", "Tinus Proxima",
+"Tinus Proxima", "Tinus Proxima", "Nigplu D", "Nigplu D",
+"Nigplu D", "Nigplu D", "Nigplu D", "Nusam", "Nusam", "Nusam",
+"Nusam", "Nusam", "Gussiania", "Gussiania", "Gussiania",
+"Gussiania", "Gussiania", "Aenma", "Aenma", "Aenma", "Aenma",
+"Aenma", "Depe D", "Depe D", "Depe D", "Depe D", "Depe D",
+"Caty Proxima", "Caty Proxima", "Caty Proxima", "Caty Proxima",
+"Caty Proxima", "Magnus", "Magnus", "Magnus", "Magnus", "Magnus",
+"Cosamlos", "Cosamlos", "Cosamlos", "Cosamlos", "Cosamlos"
+)), row.names = c(NA, -50L), class = "data.frame")
 
 set.seed(2)
-orbs <- generate_orbits(is_it)
+orbs <- generate_orbits(planets, num_polygon_points = 5)
 
-expect_equal(digest::digest(orbs), "2d00d7711cf4872621b8bd10f5fc34e3")
+expect_equivalent(orbs, shld_be_2)
+
+shld_be3 <- structure(list(planet = c("Aenma", "Caty Proxima", "Cosamlos",
+"Depe D", "Gussiania", "Lesra Viii", "Magnus", "Nigplu D", "Nusam",
+"Tinus Proxima"), x = c(6, -6.47213595499958, 3.09016994374947,
+2.16311896062463, -4.04508497187474, -0.809016994374947, 2.78115294937453,
+-2.42705098312484, 4, -1.61803398874989), y = c(-1.46957615897682e-15,
+4.70228201833979, -9.51056516295154, -6.65739561406608, 2.93892626146237,
+-0.587785252292473, -8.55950864665638, 1.76335575687742, -9.79717439317883e-16,
+1.17557050458495)), row.names = c(NA, -10L), class = "data.frame")
 
 set.seed(3)
 ppos <- randomize_planet_positions(orbs)
 
-expect_equal(digest::digest(ppos), "b2ef805bc635e2af4d7709ad96414ce9")
+expect_equivalent(ppos, shld_be3)
 

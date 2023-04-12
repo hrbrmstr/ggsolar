@@ -21,6 +21,6 @@ Imports:
     ggplot2,
     scales,
     stringi,
-    digest
+    hrbrthemes
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3

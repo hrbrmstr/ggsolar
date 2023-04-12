@@ -29,6 +29,7 @@ The following functions are implemented:
   plot
 - `randomize_planet_positions`: Generate random planetary positions
   given a data frame of orbits
+- `scaffold_planet_plot`: Get a boilerplate to work from
 - `sol_planets`: Our Solar System
 - `theme_enhance_solar`: Provides basic cleanup defaults for solar
   system plots
@@ -113,10 +114,10 @@ plot_orbits(
 
 | Lang | \# Files |  (%) | LoC |  (%) | Blank lines |  (%) | \# Lines |  (%) |
 |:-----|---------:|-----:|----:|-----:|------------:|-----:|---------:|-----:|
-| R    |        8 | 0.36 | 191 | 0.35 |          61 | 0.31 |      141 | 0.40 |
-| Rmd  |        1 | 0.05 |  42 | 0.08 |          26 | 0.13 |       34 | 0.10 |
-| YAML |        2 | 0.09 |  38 | 0.07 |          10 | 0.05 |        2 | 0.01 |
-| SUM  |       11 | 0.50 | 271 | 0.50 |          97 | 0.50 |      177 | 0.50 |
+| R    |        8 | 0.36 | 230 | 0.37 |          65 | 0.32 |      149 | 0.40 |
+| Rmd  |        1 | 0.05 |  42 | 0.07 |          26 | 0.13 |       34 | 0.09 |
+| YAML |        2 | 0.09 |  38 | 0.06 |          10 | 0.05 |        2 | 0.01 |
+| SUM  |       11 | 0.50 | 310 | 0.50 |         101 | 0.50 |      185 | 0.50 |
 
 clock Package Metrics for ggsolar
 

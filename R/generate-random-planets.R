@@ -27,9 +27,8 @@
 #'   orbits = rando_orbits,
 #'   planet_positions = placed_planets,
 #'   label_planets = TRUE,
-#'   label_family = hrbrthemes::font_es_bold
 #' ) +
-#'   hrbrthemes::theme_ipsum_es(grid="") +
+#'   hrbrthemes::theme_ipsum(grid="") +
 #'   coord_equal() +
 #'   labs(
 #'     title = "Rando System"

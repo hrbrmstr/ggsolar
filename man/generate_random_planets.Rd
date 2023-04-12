@@ -13,9 +13,6 @@ generate_random_planets(num_planets = 20)
 character vector of planet names
 }
 \description{
-Riffed from \href{https://github.com/sayamqazi/planet-name-generator}{planet-name-generator}.
-}
-\details{
 \if{html}{
   \out{<div style="text-align: center">}\figure{README-rando-1.png}{options: style="width:750px;max-width:75\%;"}\out{</div>}
 }
@@ -39,12 +36,14 @@ plot_orbits(
   orbits = rando_orbits,
   planet_positions = placed_planets,
   label_planets = TRUE,
-  label_family = hrbrthemes::font_es_bold
 ) +
-  hrbrthemes::theme_ipsum_es(grid="") +
+  hrbrthemes::theme_ipsum(grid="") +
   coord_equal() +
   labs(
     title = "Rando System"
   ) +
   theme_enhance_solar()
+}
+\references{
+Riffed from \href{https://github.com/sayamqazi/planet-name-generator}{planet-name-generator}.
 }

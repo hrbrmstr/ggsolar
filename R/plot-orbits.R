@@ -41,9 +41,8 @@
 #'   orbits = sol_orbits,
 #'   planet_positions = placed_planets,
 #'   label_planets = TRUE,
-#'   label_family = hrbrthemes::font_es_bold
 #' ) +
-#'   hrbrthemes::theme_ipsum_es(grid="") +
+#'   hrbrthemes::theme_ipsum(grid="") +
 #'   coord_equal() +
 #'   labs(
 #'     title = "Sol",
@@ -100,5 +99,51 @@ plot_orbits <- function (orbits,
   }
 
   gg
+
+}
+
+
+#' Get a boilerplate to work from
+#'
+#' @export
+scaffold_planet_plot <- function() {
+
+  cat(
+    '# Use your own data!
+orbits <- generate_orbits(sol_planets)
+
+# Use your own data (and use use seeds so you can re-use a good )
+set.seed(1323)
+planet_positions <- randomize_planet_positions(orbits)
+
+ggplot() +
+  geom_polygon(
+    data = orbits, # <==== Use your data.frame!
+    aes(x, y, group=planet),
+    color = "white",
+    fill = NA,
+    linewidth = 0.125/2
+  ) +
+  geom_point(
+    data = planet_positions, # <==== Use your data.frame!
+    aes(x, y, group=planet),
+    color = "#fea100",
+    fill = alpha("#fea100", 1/4),
+    size = 3,
+    shape = 21,
+    stroke = 0.5
+  ) +
+  geom_text(
+    data = planet_positions, # <==== Use your data.frame!
+    aes(x, y, group=planet, label = sprintf("    %s", planet)),
+    color = "white",
+    size = 3,
+    family = "sans",
+    hjust = 0
+  ) +
+  coord_equal() +
+  theme_void() +
+  theme_enhance_solar()
+')
 
 }

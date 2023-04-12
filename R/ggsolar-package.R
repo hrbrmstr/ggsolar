@@ -13,5 +13,5 @@
 #' @name ggsolar
 #' @keywords internal
 #' @author Bob Rudis (bob@@rud.is)
-#' @import ggplot2 scales stringi
+#' @import ggplot2 scales stringi hrbrthemes utils
 "_PACKAGE"

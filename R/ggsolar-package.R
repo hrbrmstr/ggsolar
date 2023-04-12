@@ -13,6 +13,5 @@
 #' @name ggsolar
 #' @keywords internal
 #' @author Bob Rudis (bob@@rud.is)
-#' @import httr ggplot2 scales
-#' @importFrom jsonlite fromJSON
+#' @import ggplot2 scales stringi
 "_PACKAGE"

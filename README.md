@@ -23,6 +23,8 @@ package.
 The following functions are implemented:
 
 - `generate_orbits`: Generate concentric circular orbits for “n” planets
+- `generate_random_planets`: Generate a vector of n believable planetary
+  names using hidden Markov model.
 - `plot_orbits`: Return a skeleton of a ggplot2 plot of solar system
   plot
 - `randomize_planet_positions`: Generate random planetary positions
@@ -34,6 +36,7 @@ The following functions are implemented:
 ## Installation
 
 ``` r
+remotes::install_github("hrbrmstr/ggsolar")
 ```
 
 NOTE: To use the ‘remotes’ install options you will need to have the
@@ -55,7 +58,7 @@ packageVersion("ggsolar")
 ``` r
 sol_orbits <- generate_orbits(sol_planets)
 
-set.seed(1323) # this produced a decent placements
+set.seed(1323) # this produced decent placements
 
 placed_planets <- randomize_planet_positions(sol_orbits)
 
@@ -76,14 +79,44 @@ plot_orbits(
 
 <img src="man/figures/README-sol-1.png" width="576" />
 
+## Rando!
+
+``` r
+set.seed(42)
+(rando_planets <- generate_random_planets(12))
+##  [1] "Ososi"       "Morlambtune" "Obli Vi"     "Lantitan"    "Tanthos"     "Onhy"        "Lesbomor C"  "Radido"     
+##  [9] "Lesstel"     "Altan Prime" "Lasdre"      "Brenta"
+
+rando_orbits <- generate_orbits(rando_planets)
+
+set.seed(123) # this produced decent placements
+
+placed_planets <- randomize_planet_positions(rando_orbits)
+
+plot_orbits(
+  orbits = rando_orbits, 
+  planet_positions = placed_planets,
+  label_planets = TRUE,
+  label_family = hrbrthemes::font_es_bold
+) +
+  hrbrthemes::theme_ipsum_es(grid="") +
+  coord_equal() +
+  labs(
+    title = "Rando System"
+  ) +
+  theme_enhance_solar()
+```
+
+<img src="man/figures/README-rando-1.png" width="576" />
+
 ## ggsolar Metrics
 
 | Lang | \# Files |  (%) | LoC |  (%) | Blank lines |  (%) | \# Lines |  (%) |
 |:-----|---------:|-----:|----:|-----:|------------:|-----:|---------:|-----:|
-| R    |        7 | 0.35 |  98 | 0.30 |          35 | 0.27 |       97 | 0.37 |
-| YAML |        2 | 0.10 |  38 | 0.12 |          10 | 0.08 |        2 | 0.01 |
-| Rmd  |        1 | 0.05 |  25 | 0.08 |          20 | 0.15 |       31 | 0.12 |
-| SUM  |       10 | 0.50 | 161 | 0.50 |          65 | 0.50 |      130 | 0.50 |
+| R    |        8 | 0.36 | 191 | 0.35 |          61 | 0.31 |      141 | 0.40 |
+| Rmd  |        1 | 0.05 |  42 | 0.08 |          26 | 0.13 |       34 | 0.10 |
+| YAML |        2 | 0.09 |  38 | 0.07 |          10 | 0.05 |        2 | 0.01 |
+| SUM  |       11 | 0.50 | 271 | 0.50 |          97 | 0.50 |      177 | 0.50 |
 
 clock Package Metrics for ggsolar
 

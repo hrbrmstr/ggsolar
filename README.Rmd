@@ -45,7 +45,7 @@ packageVersion("ggsolar")
 ```{r sol, fig.width=6, fig.height=6, dev.args=list(bg="transparent")}
 sol_orbits <- generate_orbits(sol_planets)
 
-set.seed(1323) # this produced a decent placements
+set.seed(1323) # this produced decent placements
 
 placed_planets <- randomize_planet_positions(sol_orbits)
 
@@ -60,6 +60,32 @@ plot_orbits(
   labs(
     title = "Sol",
     caption = "Pluto is 100% a planet"
+  ) +
+  theme_enhance_solar()
+```
+
+## Rando!
+
+```{r rando, fig.width=6, fig.height=6, dev.args=list(bg="transparent")}
+set.seed(42)
+(rando_planets <- generate_random_planets(12))
+
+rando_orbits <- generate_orbits(rando_planets)
+
+set.seed(123) # this produced decent placements
+
+placed_planets <- randomize_planet_positions(rando_orbits)
+
+plot_orbits(
+  orbits = rando_orbits, 
+  planet_positions = placed_planets,
+  label_planets = TRUE,
+  label_family = hrbrthemes::font_es_bold
+) +
+  hrbrthemes::theme_ipsum_es(grid="") +
+  coord_equal() +
+  labs(
+    title = "Rando System"
   ) +
   theme_enhance_solar()
 ```

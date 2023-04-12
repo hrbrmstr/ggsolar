@@ -42,7 +42,7 @@ packageVersion("ggsolar")
 
 ## Sol
 
-```{r sol, fig.width=6, fig.height=6, background="transparent"}
+```{r sol, fig.width=6, fig.height=6, dev.args=list(bg="transparent")}
 sol_orbits <- generate_orbits(sol_planets)
 
 set.seed(1323) # this produced a decent placements

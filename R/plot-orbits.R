@@ -31,6 +31,8 @@
 #' @return ggplot2 object
 #' @export
 #' @examples
+#' library(ggplot2)
+#'
 #' sol_orbits <- generate_orbits(sol_planets)
 #'
 #' set.seed(1323)

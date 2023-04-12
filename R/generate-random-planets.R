@@ -12,6 +12,8 @@
 #' @references Riffed from [planet-name-generator](https://github.com/sayamqazi/planet-name-generator).
 #' @export
 #' @examples
+#' library(ggplot2)
+#'
 #' generate_random_planets(15)
 #'
 #' set.seed(42)

@@ -64,6 +64,64 @@ plot_orbits(
   theme_enhance_solar()
 ```
 
+## Non-uniform Radii
+
+We'll plot Sol's system with the square root of the actual radius AU's (which are `0.39`, `0.72`, `1.00`, `1.52`, `5.20`, `9.58`, `19.18`, `30.07`, `39.48`):
+
+```{r sol-sqrt, fig.width=7, fig.height=7, dev.args=list(bg="transparent")}
+sol_dist <- sqrt(c(0.39, 0.72, 1.00, 1.52, 5.20, 9.58, 19.18, 30.07, 39.48))
+sol_orbits <- generate_orbits(sol_planets, radii = sol_dist, num_polygon_points = 1000)
+
+set.seed(42)
+sol_placements <- randomize_planet_positions(sol_orbits)
+
+plot_orbits(
+  orbits = sol_orbits, 
+  planet_positions = sol_placements,
+  label_planets = TRUE,
+  label_family = hrbrthemes::font_es_bold
+) +
+  hrbrthemes::theme_ipsum_es(grid="") +
+  coord_equal() +
+  labs(
+    title = "Sol System (Orbits AU Sqrt.)",
+    subtitle = "Non-uniform Radii",
+    caption = "Pluto is 100% a planet"
+  ) +
+  theme_enhance_solar()
+```
+
+## Custom Planet Placements!
+
+We'll plot Sol's system with the square root of the actual radius AU's (which are `0.39`, `0.72`, `1.00`, `1.52`, `5.20`, `9.58`, `19.18`, `30.07`, `39.48`):
+
+```{r sol-precise-sqrt, fig.width=7, fig.height=7, dev.args=list(bg="transparent")}
+sol_dist <- sqrt(c(0.39, 0.72, 1.00, 1.52, 5.20, 9.58, 19.18, 30.07, 39.48))
+sol_orbits <- generate_orbits(sol_planets, radii = sol_dist, num_polygon_points = 1000)
+
+my_pos <- function(n) {
+  seq(from = 0, to = 1, length.out = 9)
+}
+
+sol_placements <- randomize_planet_positions(sol_orbits, randomizer = my_pos)
+
+plot_orbits(
+  orbits = sol_orbits, 
+  planet_positions = sol_placements,
+  label_planets = TRUE,
+  label_family = hrbrthemes::font_es_bold
+) +
+  hrbrthemes::theme_ipsum_es(grid="") +
+  coord_equal() +
+  labs(
+    title = "Sol System (Orbits AU Sqrt.)",
+    subtitle = "Custom placements",
+    caption = "Pluto is 100% a planet"
+  ) +
+  theme_enhance_solar()
+```
+
+
 ## Rando!
 
 ```{r rando, fig.width=6, fig.height=6, dev.args=list(bg="transparent")}

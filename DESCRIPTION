@@ -1,8 +1,8 @@
 Package: ggsolar
 Type: Package
 Title: Generate Solar System Plots
-Version: 0.1.0
-Date: 2023-04-12
+Version: 0.1.1
+Date: 2023-04-17
 Authors@R: c(
     person("Bob", "Rudis", email = "bob@rud.is", role = c("aut", "cre"), 
            comment = c(ORCID = "0000-0001-5670-2640"))
@@ -19,6 +19,7 @@ Depends:
     R (>= 3.6.0),
 Imports:
     ggplot2,
-    stringi
+    stringi,
+    ggforce
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3

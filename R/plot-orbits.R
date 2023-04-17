@@ -70,12 +70,17 @@ plot_orbits <- function (orbits,
 
   gg <- ggplot2::ggplot()
 
-  gg + ggplot2::geom_polygon(
+  gg + geom_circle(
     data = orbits,
-    ggplot2::aes(x, y, group=planet),
+    aes(
+      x0 = 0,
+      y0 = 0,
+      r = radius
+    ),
     color = orbit_color,
     fill = orbit_fill,
-    linewidth = orbit_linewidth
+    color = alpha("white", 1/2),
+    size = orbit_linewidth,
   ) -> gg
 
   gg + ggplot2::geom_point(
@@ -111,40 +116,35 @@ plot_orbits <- function (orbits,
 scaffold_planet_plot <- function() {
 
   cat(
-    '# Use your own data!
-orbits <- generate_orbits(sol_planets)
+    '# Use your own data/seed!!
+sol_dist <- sqrt(c(0.39, 0.72, 1.00, 1.52, 5.20, 9.58, 19.18, 30.07, 39.48))
+sol_orbits <- generate_orbits(sol_planets, radii = sol_dist, num_polygon_points = 1000)
 
-# Use your own data (and use use seeds so you can re-use a good )
-set.seed(1323)
-planet_positions <- randomize_planet_positions(orbits)
+set.seed(42)
+sol_placements <- randomize_planet_positions(sol_orbits)
 
 ggplot() +
-  geom_polygon(
-    data = orbits, # <==== Use your data.frame!
-    aes(x, y, group=planet),
-    color = "white",
-    fill = NA,
-    linewidth = 0.125/2
+  geom_circle(
+    data = sol_orbits,
+    aes(
+      x0 = 0,
+      y0 = 0,
+      r = radius
+    ),
+    color = alpha("white", 1/2),
+    size = 0.125
   ) +
   geom_point(
-    data = planet_positions, # <==== Use your data.frame!
-    aes(x, y, group=planet),
-    color = "#fea100",
-    fill = alpha("#fea100", 1/4),
+    data = sol_placements,
+    aes(x, y),
+    color = "orange",
+    fill = alpha("orange", 1/2),
     size = 3,
     shape = 21,
-    stroke = 0.5
+    stroke = 1
   ) +
-  geom_text(
-    data = planet_positions, # <==== Use your data.frame!
-    aes(x, y, group=planet, label = sprintf("    %s", planet)),
-    color = "white",
-    size = 3,
-    family = "sans",
-    hjust = 0
-  ) +
-  coord_equal() +
-  theme_void() +
+  coord_fixed() +
+  theme_void(grid="") +
   theme_enhance_solar()
 ')
 

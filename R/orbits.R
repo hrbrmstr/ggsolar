@@ -14,21 +14,10 @@
 #' generate_orbits(sol_planets)
 generate_orbits <- function(planets, radii = 1:length(planets), num_polygon_points=1000) {
 
-  lapply(1:length(radii), function(i) {
-
-    theta <- seq(0, 2*pi, length.out = num_polygon_points+1)[-1]
-
-    x <- radii[i] * cos(theta)
-    y <- radii[i] * sin(theta)
-
-    out <- cbind(x, y)
-    out <- as.data.frame(out)
-    out$planet <- planets[i]
-
-    out
-
-  }) -> orbits
-
-  do.call(rbind.data.frame, orbits)
+  data.frame(
+    planet = planets,
+    radius = radii,
+    num_polygon_points = num_polygon_points
+  )
 
 }

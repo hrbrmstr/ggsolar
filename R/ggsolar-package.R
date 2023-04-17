@@ -13,5 +13,5 @@
 #' @name ggsolar
 #' @keywords internal
 #' @author Bob Rudis (bob@@rud.is)
-#' @import ggplot2 stringi utils
+#' @import ggplot2 stringi ggforce
 "_PACKAGE"

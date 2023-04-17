@@ -1,55 +1,28 @@
-default_random_index <- function(x, y, planet) {
-
-  idx <- sample(length(x), 1)
-
-  data.frame(
-    planet = planet,
-    x = x[idx],
-    y = y[idx]
-  )
-
-}
-
 #' Generate random planetary positions given a data frame of orbits
 #'
 #' You can use this after calling [generate_orbits()] to compute a
 #' random position along the orbit circle for each planet
 #'
 #' @param orbits (df) output of [generate_orbits()]
-#' @param randomizer (ƒ) a function name that takes as parameters
-#'        `x` and `y` vectors of coordinates (from an orbit polygon)
-#'        and a `planet` name and returns a data frame of `x`, `y`,
-#'        `planet` with `x` and `y` being a single random point from
-#'        the `planet`'s orbit. By default, this is just (ultimate) a
-#'        call to [sample()].
-#' @return (data.fame) with the `planet` name and `x`/`y` coords
+#' @param randomizer (ƒ) if not the default `runif`, a function that can take
+#'        a parameter `n`, the number of orbits, and return a numeric vector of
+#'        values between 0 and 1 that will position the point where you want it
+#'        to be on the orbit circle.
+#' @return (data.fame) with the `planet` name, computed angle, and `x`/`y` coord of the planet
 #' @export
 #' @examples
 #' sol_orbits <- generate_orbits(sol_planets)
 #' randomize_planet_positions(sol_orbits)
-randomize_planet_positions <- function(orbits, randomizer=default_random_index) {
+randomize_planet_positions <- function(orbits, randomizer=runif) {
 
-  do.call(
+  angles <- (seq_along(orbits$radius)-1) + randomizer(nrow(orbits)) * 2 * pi
 
-    rbind.data.frame,
-
-    by(
-
-      orbits,
-
-      orbits[["planet"]],
-
-      function(xdf) {
-        randomizer(xdf$x, xdf$y, xdf$planet[1])
-      }
-
-    )
-
-  ) -> out
-
-  rownames(out) <- NULL
-
-  out
+  data.frame(
+    planet = orbits$planet,
+    angle = angles,
+    x = orbits$radius * cos(angles),
+    y = orbits$radius * sin(angles)
+  )
 
 }
 

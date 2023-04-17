@@ -4,20 +4,18 @@
 \alias{randomize_planet_positions}
 \title{Generate random planetary positions given a data frame of orbits}
 \usage{
-randomize_planet_positions(orbits, randomizer = default_random_index)
+randomize_planet_positions(orbits, randomizer = runif)
 }
 \arguments{
 \item{orbits}{(df) output of \code{\link[=generate_orbits]{generate_orbits()}}}
 
-\item{randomizer}{(ƒ) a function name that takes as parameters
-\code{x} and \code{y} vectors of coordinates (from an orbit polygon)
-and a \code{planet} name and returns a data frame of \code{x}, \code{y},
-\code{planet} with \code{x} and \code{y} being a single random point from
-the \code{planet}'s orbit. By default, this is just (ultimate) a
-call to \code{\link[=sample]{sample()}}.}
+\item{randomizer}{(ƒ) if not the default \code{runif}, a function that can take
+a parameter \code{n}, the number of orbits, and return a numeric vector of
+values between 0 and 1 that will position the point where you want it
+to be on the orbit circle.}
 }
 \value{
-(data.fame) with the \code{planet} name and \code{x}/\code{y} coords
+(data.fame) with the \code{planet} name, computed angle, and \code{x}/\code{y} coord of the planet
 }
 \description{
 You can use this after calling \code{\link[=generate_orbits]{generate_orbits()}} to compute a

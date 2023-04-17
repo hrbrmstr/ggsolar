@@ -51,7 +51,7 @@ library(ggplot2)
 
 # current version
 packageVersion("ggsolar")
-## [1] '0.1.0'
+## [1] '0.1.1'
 ```
 
 ## Sol
@@ -79,6 +79,71 @@ plot_orbits(
 ```
 
 <img src="man/figures/README-sol-1.png" width="576" />
+
+## Non-uniform Radii
+
+We’ll plot Sol’s system with the square root of the actual radius AU’s
+(which are `0.39`, `0.72`, `1.00`, `1.52`, `5.20`, `9.58`, `19.18`,
+`30.07`, `39.48`):
+
+``` r
+sol_dist <- sqrt(c(0.39, 0.72, 1.00, 1.52, 5.20, 9.58, 19.18, 30.07, 39.48))
+sol_orbits <- generate_orbits(sol_planets, radii = sol_dist, num_polygon_points = 1000)
+
+set.seed(42)
+sol_placements <- randomize_planet_positions(sol_orbits)
+
+plot_orbits(
+  orbits = sol_orbits, 
+  planet_positions = sol_placements,
+  label_planets = TRUE,
+  label_family = hrbrthemes::font_es_bold
+) +
+  hrbrthemes::theme_ipsum_es(grid="") +
+  coord_equal() +
+  labs(
+    title = "Sol System (Orbits AU Sqrt.)",
+    subtitle = "Non-uniform Radii",
+    caption = "Pluto is 100% a planet"
+  ) +
+  theme_enhance_solar()
+```
+
+<img src="man/figures/README-sol-sqrt-1.png" width="672" />
+
+## Custom Planet Placements!
+
+We’ll plot Sol’s system with the square root of the actual radius AU’s
+(which are `0.39`, `0.72`, `1.00`, `1.52`, `5.20`, `9.58`, `19.18`,
+`30.07`, `39.48`):
+
+``` r
+sol_dist <- sqrt(c(0.39, 0.72, 1.00, 1.52, 5.20, 9.58, 19.18, 30.07, 39.48))
+sol_orbits <- generate_orbits(sol_planets, radii = sol_dist, num_polygon_points = 1000)
+
+my_pos <- function(n) {
+  seq(from = 0, to = 1, length.out = 9)
+}
+
+sol_placements <- randomize_planet_positions(sol_orbits, randomizer = my_pos)
+
+plot_orbits(
+  orbits = sol_orbits, 
+  planet_positions = sol_placements,
+  label_planets = TRUE,
+  label_family = hrbrthemes::font_es_bold
+) +
+  hrbrthemes::theme_ipsum_es(grid="") +
+  coord_equal() +
+  labs(
+    title = "Sol System (Orbits AU Sqrt.)",
+    subtitle = "Custom placements",
+    caption = "Pluto is 100% a planet"
+  ) +
+  theme_enhance_solar()
+```
+
+<img src="man/figures/README-sol-precise-sqrt-1.png" width="672" />
 
 ## Rando!
 
@@ -114,10 +179,10 @@ plot_orbits(
 
 | Lang | \# Files |  (%) | LoC |  (%) | Blank lines |  (%) | \# Lines |  (%) |
 |:-----|---------:|-----:|----:|-----:|------------:|-----:|---------:|-----:|
-| R    |        8 | 0.36 | 230 | 0.37 |          65 | 0.32 |      149 | 0.40 |
-| Rmd  |        1 | 0.05 |  42 | 0.07 |          26 | 0.13 |       34 | 0.09 |
+| R    |        8 | 0.36 | 217 | 0.32 |          47 | 0.25 |      150 | 0.39 |
+| Rmd  |        1 | 0.05 |  80 | 0.12 |          38 | 0.20 |       42 | 0.11 |
 | YAML |        2 | 0.09 |  38 | 0.06 |          10 | 0.05 |        2 | 0.01 |
-| SUM  |       11 | 0.50 | 310 | 0.50 |         101 | 0.50 |      185 | 0.50 |
+| SUM  |       11 | 0.50 | 335 | 0.50 |          95 | 0.50 |      194 | 0.50 |
 
 clock Package Metrics for ggsolar
 

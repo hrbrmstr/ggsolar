@@ -2,9 +2,11 @@
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![Signed
+by](https://img.shields.io/badge/Keybase-Verified-brightgreen.svg)](https://keybase.io/hrbrmstr)
 ![Signed commit
-%](https://img.shields.io/badge/Signed_Commits-100%25-lightgrey.svg)
-[![R-CMD-check](https://github.com/hrbrmstr/ggsolar/workflows/R-CMD-check/badge.svg)](https://github.com/hrbrmstr/ggsolar/actions?query=workflow%3AR-CMD-check)  
+%](https://img.shields.io/badge/Signed_Commits-0%25-lightgrey.svg)
+[![R-CMD-check](https://github.com/hrbrmstr/ggsolar/workflows/R-CMD-check/badge.svg)](https://github.com/hrbrmstr/ggsolar/actions?query=workflow%3AR-CMD-check)
 ![Minimal R
 Version](https://img.shields.io/badge/R%3E%3D-3.6.0-blue.svg)
 ![License](https://img.shields.io/badge/License-MIT-blue.svg)
@@ -150,8 +152,8 @@ plot_orbits(
 ``` r
 set.seed(42)
 (rando_planets <- generate_random_planets(12))
-##  [1] "Ososi"       "Morlambtune" "Obli Vi"     "Lantitan"    "Tanthos"     "Onhy"        "Lesbomor C"  "Radido"     
-##  [9] "Lesstel"     "Altan Prime" "Lasdre"      "Brenta"
+##  [1] "Ososi"       "Morlambtune" "Obli VI"     "Lantitan"    "Tanthos"     "Onhy"        "Lesbomor C"  "Radido"     
+##  [9] "Lesstel"     "Altan prime" "Lasdre"      "Brenta"
 
 rando_orbits <- generate_orbits(rando_planets)
 
@@ -179,10 +181,10 @@ plot_orbits(
 
 | Lang | \# Files |  (%) | LoC |  (%) | Blank lines |  (%) | \# Lines |  (%) |
 |:-----|---------:|-----:|----:|-----:|------------:|-----:|---------:|-----:|
-| R    |        8 | 0.36 | 217 | 0.32 |          47 | 0.25 |      150 | 0.39 |
+| R    |        8 | 0.36 | 215 | 0.32 |          47 | 0.25 |      154 | 0.39 |
 | Rmd  |        1 | 0.05 |  80 | 0.12 |          38 | 0.20 |       42 | 0.11 |
 | YAML |        2 | 0.09 |  38 | 0.06 |          10 | 0.05 |        2 | 0.01 |
-| SUM  |       11 | 0.50 | 335 | 0.50 |          95 | 0.50 |      194 | 0.50 |
+| SUM  |       11 | 0.50 | 333 | 0.50 |          95 | 0.50 |      198 | 0.50 |
 
 clock Package Metrics for ggsolar
 

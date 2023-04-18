@@ -1,5 +1,5 @@
 utils::globalVariables(
-  c("x", "y", "planet")
+  c("x", "y", "planet", "radius")
 )
 
 #' Our Solar System

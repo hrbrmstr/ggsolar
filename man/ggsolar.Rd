@@ -12,6 +12,7 @@ Generate "solar system" plots using everyone's favorite plotting package.
 \if{html}{
   \out{<div style="text-align: center">}\figure{README-sol-1.png}{options: style="width:750px;max-width:75\%;"}\out{</div>}
 }
+
 \if{latex}{
   \out{\begin{center}}\figure{README-sol-1.png}\out{\end{center}}
 }

@@ -3,6 +3,7 @@
 #' \if{html}{
 #'   \out{<div style="text-align: center">}\figure{README-rando-1.png}{options: style="width:750px;max-width:75\%;"}\out{</div>}
 #' }
+#'
 #' \if{latex}{
 #'   \out{\begin{center}}\figure{README-rando-1.png}\out{\end{center}}
 #' }
@@ -105,14 +106,12 @@ generate_random_planets <- function(num_planets = 20) {
     }
 
     suffix_index <- sample(1:length(suffixes), 1)
-    planet_name <- paste(planet_name, suffixes[suffix_index])
+    planet_name <- paste(stringi::stri_trans_totitle(planet_name), suffixes[suffix_index])
     generated_planet_names <- append(generated_planet_names, planet_name)
 
     num_names <- num_names + 1
   }
 
-  stringi::stri_trans_totitle(
-    stringi::stri_trim_both(generated_planet_names)
-  )
+  stringi::stri_trim_both(generated_planet_names)
 
 }

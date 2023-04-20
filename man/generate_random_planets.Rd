@@ -13,14 +13,7 @@ generate_random_planets(num_planets = 20)
 character vector of planet names
 }
 \description{
-\if{html}{
-  \out{<div style="text-align: center">}\figure{README-rando-1.png}{options: style="width:750px;max-width:75\%;"}\out{</div>}
-}
-}
-\details{
-\if{latex}{
-  \out{\begin{center}}\figure{README-rando-1.png}\out{\end{center}}
-}
+Generate a vector of \code{n} believable planetary names using hidden Markov model.
 }
 \examples{
 library(ggplot2)

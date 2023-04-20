@@ -1,13 +1,5 @@
 #' Generate a vector of `n` believable planetary names using hidden Markov model.
 #'
-#' \if{html}{
-#'   \out{<div style="text-align: center">}\figure{README-rando-1.png}{options: style="width:750px;max-width:75\%;"}\out{</div>}
-#' }
-#'
-#' \if{latex}{
-#'   \out{\begin{center}}\figure{README-rando-1.png}\out{\end{center}}
-#' }
-#'
 #' @param num_planets how many planets?
 #' @return character vector of planet names
 #' @references Riffed from [planet-name-generator](https://github.com/sayamqazi/planet-name-generator).

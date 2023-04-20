@@ -1,14 +1,11 @@
 #' Generate Solar System Plots
 #'
-#' Generate "solar system" plots using everyone's favorite plotting package.
-#'
-#' \if{html}{
-#'   \out{<div style="text-align: center">}\figure{README-sol-1.png}{options: style="width:750px;max-width:75\%;"}\out{</div>}
-#' }
-#'
-#' \if{latex}{
-#'   \out{\begin{center}}\figure{README-sol-1.png}\out{\end{center}}
-#' }
+#' Tools are provided to generate a dynamic list of convincing celestial object names
+#' using a small Markov chain model, construct orbital radii of uniform or specified/natural
+#' distances, place celestial objects randomly on the orbit circles using built-in or custom
+#' placement functions. Additional capabilities include the ability to output plots from a core
+#' routine, generate a plotting template to further customize, and place labels next to celestial
+#' object. Some theme elements are also provided to speed up clean plot output generation.
 #'
 #' @md
 #' @name ggsolar

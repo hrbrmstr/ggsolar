@@ -24,3 +24,5 @@
 ^package-lock\.json$
 ^\.github$
 ^NEWS\.md$
+^CRAN-SUBMISSION$
+^cran-comments\.md$

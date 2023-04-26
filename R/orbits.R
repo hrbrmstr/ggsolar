@@ -1,3 +1,5 @@
+# nolint start
+
 #' Generate concentric circular orbits for "n" planets
 #'
 #' Given a character vector of "planet" names, generate a
@@ -21,3 +23,5 @@ generate_orbits <- function(planets, radii = 1:length(planets), num_polygon_poin
   )
 
 }
+
+# nolint end

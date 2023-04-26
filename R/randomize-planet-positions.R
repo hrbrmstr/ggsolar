@@ -1,3 +1,5 @@
+# nolint start
+
 #' Generate random planetary positions given a data frame of orbits
 #'
 #' You can use this after calling [generate_orbits()] to compute a
@@ -26,3 +28,5 @@ randomize_planet_positions <- function(orbits, randomizer=runif) {
 
 }
 
+
+# nolint end

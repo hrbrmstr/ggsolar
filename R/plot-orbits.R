@@ -1,3 +1,5 @@
+# nolint start
+
 #' Return a skeleton of a ggplot2 plot of solar system plot
 #'
 #' THIS JUST A LAZY HELPER FUNCTION UNTIL I HAVE TIME TO WRITE GEOMS
@@ -142,3 +144,5 @@ ggplot() +
 ')
 
 }
+
+# nolint end

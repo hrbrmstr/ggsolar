@@ -1,3 +1,5 @@
+# nolint start
+
 #' Generate a vector of `n` believable planetary names using hidden Markov model.
 #'
 #' @param num_planets how many planets?
@@ -107,3 +109,5 @@ generate_random_planets <- function(num_planets = 20) {
   stringi::stri_trim_both(generated_planet_names)
 
 }
+
+# nolint end

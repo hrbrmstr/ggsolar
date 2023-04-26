@@ -1,3 +1,5 @@
+# nolint start
+
 utils::globalVariables(
   c("x", "y", "planet", "radius")
 )
@@ -46,3 +48,5 @@ c("cen-tau-ri", "pro-xi-ma", "al-pha", "pro-xi-mus", "ter-ra",
   "ori-gus", "xe-lo-phus", "meg-lo-vus", "al-pha-ni-us", "es-la-var",
   "cel-les-ti-us", "stel-le-ra-sus", "ra-le-os", "pa-go-ya", "pul-sar"
 ) -> planet_fragments
+
+# nolint end

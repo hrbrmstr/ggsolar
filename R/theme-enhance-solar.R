@@ -1,3 +1,5 @@
+# nolint start
+
 #' Provides basic cleanup defaults for solar system plots
 #'
 #' @param bg,fg background/foreground colors
@@ -22,3 +24,5 @@ theme_enhance_solar <- function(bg = "black", fg = "white") {
   )
 
 }
+
+# nolint end

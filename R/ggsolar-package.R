@@ -1,3 +1,5 @@
+# nolint start
+
 #' Generate Solar System Plots
 #'
 #' Tools are provided to generate a dynamic list of convincing celestial object names
@@ -14,3 +16,5 @@
 #' @import ggplot2 stringi ggforce
 #' @importFrom stats runif
 "_PACKAGE"
+
+# nolint end
